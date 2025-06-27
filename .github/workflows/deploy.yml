@@ -85,7 +85,5 @@ jobs:
 
           # Restart Nginx to apply the new configuration
           sudo systemctl restart nginx
-        EOF
-
-        
+        EOF      
  
