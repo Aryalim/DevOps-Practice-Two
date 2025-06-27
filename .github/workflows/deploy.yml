@@ -48,7 +48,7 @@ jobs:
         ls -l ./build  # Check if the build folder exists
 
         # Copy the build folder to the EC2 instance
-        scp -r ./build $EC2_USERNAME@$EC2_IP:/home/ubuntu/first-react-app
+        scp -r ./build $EC2_USERNAME@$EC2_IP:/home/ubuntu/devops-react-app
 
         # SSH into the EC2 instance and configure Nginx
         ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_IP << 'EOF'
@@ -59,8 +59,8 @@ jobs:
           # Remove default files from Nginx directory
           sudo rm -rf /var/www/html/*
 
-          # Copy new build files from first-react-app folder to Nginx folder
-          sudo cp -r /home/ubuntu/first-react-app/build/* /var/www/html/
+          # Copy new build files from devops-react-app folder to Nginx folder
+          sudo cp -r /home/ubuntu/devops-react-app/build/* /var/www/html/
 
           # Set ownership and permissions for the files
           sudo chown -R www-data:www-data /var/www/html/
